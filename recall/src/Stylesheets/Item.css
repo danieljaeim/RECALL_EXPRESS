@@ -1,0 +1,27 @@
+.Item-child {
+  position: relative; 
+  display: inline-block; 
+}
+
+.Item-child img{
+  width: 5vh; 
+  height: 5vh; 
+  margin: 0.25rem; 
+  border-radius: 20%; 
+}
+
+.Item-text {
+  visibility: hidden; 
+  width: 120px; 
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.Item-child:hover .Item-text {
+  visibility: visible;
+}

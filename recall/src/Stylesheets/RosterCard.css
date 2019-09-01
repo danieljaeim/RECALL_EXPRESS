@@ -1,0 +1,70 @@
+.roster-card {
+  position: relative; 
+  height: 800px; 
+  width: 50%;  
+  overflow: scroll; 
+  float: left; 
+}
+
+.roster-button {
+  position: relative; 
+  height: 50px; 
+  width: 50px; 
+}
+
+.champ-img {
+  position: absolute; 
+  left: 0; 
+  top: 20px; 
+  border-width: 3px black solid; 
+}
+
+.champ-name {
+  position: absolute; 
+  top: 150px;  
+}
+
+.champ-title {
+  position: absolute; 
+  top: 200px; 
+}
+
+.skill-arr {
+  position: absolute; 
+  display: inline-block; 
+  left: 130px;
+  top: 25px;   
+  width: 400px; 
+  height: 100px;  
+  background-color: black; 
+  border-width: 2px;
+  border-style: solid; 
+  border-radius: 4px; 
+}
+
+.skill-border {
+  display: inline-flex; 
+  color: black; 
+  border-width: 2px; 
+  border-color:goldenrod; 
+  border-style: solid; 
+  border-radius: 4px; 
+  height: 100px; 
+  width: 400px; 
+}
+
+.skill-slot {
+  position: inline-flex; 
+  border-width: 2px; 
+  border-color: black; 
+  border-style: solid; 
+  width: 25%; 
+}
+
+.skill-img {
+  width: 97%; 
+  height: auto; 
+  max-width: 100px; 
+  margin: 1px;  
+  z-index: -2; 
+}

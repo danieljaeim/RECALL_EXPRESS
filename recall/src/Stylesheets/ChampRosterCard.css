@@ -1,0 +1,12 @@
+.roster-img{ 
+  height: 60px; 
+}
+
+.roster-img:hover {
+  cursor: pointer; 
+}
+
+.roster-parent {
+  float: left; 
+  margin: 2px 2px; 
+}

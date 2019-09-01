@@ -1,0 +1,12 @@
+.ChampList-wrapper {
+  height: 50%;
+}
+.ChampList-parent {
+  display: flex;
+  flex-wrap: wrap;
+  float: left; 
+  height: 80vh;
+  width: 50vh;
+  overflow-y: scroll; 
+  margin: 5px 5px; 
+}
