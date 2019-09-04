@@ -9,7 +9,9 @@
 .roster-button {
   position: relative; 
   height: 50px; 
-  width: 50px; 
+  width: 100px; 
+  top: 250px; 
+  right: 300px;  
 }
 
 .champ-img {
@@ -67,4 +69,19 @@
   max-width: 100px; 
   margin: 1px;  
   z-index: -2; 
+}
+
+.stat-holder {
+  position: absolute; 
+  top: 150px; 
+  left: 170px;
+  height: 380px; 
+  width: 360px; 
+  background-color: whitesmoke; 
+  opacity: 0.2; 
+}
+
+.stat-line {
+  position: relative; 
+  text-align: right; 
 }

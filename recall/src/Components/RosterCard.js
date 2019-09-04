@@ -8,6 +8,8 @@ export default function RosterCard(props) {
 
   const { name, title, partype, spells, stats, tags, applyStats } = props;
 
+  console.log(stats);
+
   const qSkill = spells[0];
   const wSkill = spells[1];
   const eSkill = spells[2];
@@ -20,7 +22,7 @@ export default function RosterCard(props) {
   const rIcon = `http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/img/spell/${rSkill.image.full}`;
 
   return (
-    <div onClick={() => applyStats(name)}
+    <div
       id={name}
       className="roster-card"
     >
@@ -45,7 +47,25 @@ export default function RosterCard(props) {
           </div>
         </div>
       </div>
-      {/* <button className="roster-button">Apply Stats</button> */}
+      <div className='stat-holder'>
+        <div className='stat-line health'> Health: {stats['hp']} </div>
+        <div className='stat-line health'> Health: {stats['hpperlevel']} </div>
+        <div className='stat-line mana'> Mana: {stats['mp']} </div>
+        <div className='stat-line mana'> Mana/Lvl: {stats['mpperlevel']} </div>
+        <div className='stat-line mana'> Mana Regen: {stats['mpregen']} </div>
+        <div className='stat-line mana'> Mana Regen/Lvl: {stats['mpregenperlevel']} </div>
+        <div className='stat-line armor'> Armor: {stats['armor']} </div>
+        <div className='stat-line armorperlevel'> Armor/Lvl: {stats['armorperlevel']} </div>
+        <div className='stat-line armorperlevel'> AttackDamage: {stats['attackdamage']} </div>
+        <div className='stat-line armorperlevel'> AttackDamage/Lvl: {stats['attackdamageperlevel']} </div>
+        <div className='stat-line armorperlevel'> Attack Range: {stats['attackrange']} </div>
+        <div className='stat-line armorperlevel'> Attack Speed: {stats['attackspeed']} </div>
+        <div className='stat-line armorperlevel'> AttackSpeed/Lvl: {stats['attackspeedperlevel']} </div>
+        <div className='stat-line armorperlevel'> Health Regen: {stats['hpregen']} </div>
+        <div className='stat-line armorperlevel'> HealthRegen/Lvl: {stats['hpregenperlevel']} </div>
+        <div className='stat-line armorperlevel'> Movespeed: {stats['movespeed']} </div>
+      </div>
+      <button className="roster-button" onClick={() => applyStats(name)}>Apply Stats</button>
 
     </div>
   )

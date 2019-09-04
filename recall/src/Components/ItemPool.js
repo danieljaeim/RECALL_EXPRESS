@@ -26,7 +26,7 @@ export default class ItemPool extends Component {
             <Item
               key={item.key}
               id={item.key}
-              addItem={this.addItem}
+              addItem={addItem}
               {...item.data} />)
           }
         </div>

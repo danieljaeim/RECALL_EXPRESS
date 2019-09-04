@@ -1,44 +1,45 @@
 //takes currentItem Stats and applies them to current champion, based on champion base stats
 
 export default function applyItemStats(champStats, itemStats) {
+  let thisChampStats = champStats['stats'];
 
   for (let [stat, value] of Object.entries(itemStats)) {
     switch (stat) {
       case "FlatHPPoolMod":
-        champStats['hp'] += value;
+        thisChampStats['hp'] += value;
         break; 
       case "FlatMPPoolMod":
-        champStats['mp'] += value; 
+        thisChampStats['mp'] += value; 
         break; 
       case "FlatHPRegenMod":
-        champStats['hp_regen'] += value; 
+        thisChampStats['hp_regen'] += value; 
         break; 
       case "FlatArmorMod":
-        champStats['armor'] += value; 
+        thisChampStats['armor'] += value; 
         break;
       case "FlatPhysicalDamageMod":
-        champStats['attackdamage'] += value; 
+        thisChampStats['attackdamage'] += value; 
         break; 
       case "FlatMagicDamageMod":
-        champStats['ability_power'] = champStats['ability_power'] ? champStats['ability_power'] + value : value; 
+        thisChampStats['ability_power'] = thisChampStats['ability_power'] ? thisChampStats['ability_power'] + value : value; 
         break; 
       case "FlatMovementSpeedMod":
-        champStats['movespeed'] += value; 
+        thisChampStats['movespeed'] += value; 
         break; 
       case "PercentMovementSpeedMod":
-        champStats['movespeed'] = champStats['movespeed'] + (champStats['movespeed'] * value);
+        thisChampStats['movespeed'] = thisChampStats['movespeed'] + (thisChampStats['movespeed'] * value);
         break;  
       case "PercentAttackSpeedMod":
-        champStats['attackspeed'] += value; 
+        thisChampStats['attackspeed'] += value; 
         break; 
       case "FlatCritChanceMod":
-        champStats['crit'] += value;
+        thisChampStats['crit'] += value;
         break; 
       case "FlatSpellBlockMod":
-        champStats['magic_resist'] += value;
+        thisChampStats['magic_resist'] += value;
         break; 
       case "PercentLifeStealMod":
-        champStats['lifesteal'] = champStats['lifesteal'] ? champStats['lifesteal'] + value : value; 
+        thisChampStats['lifesteal'] = thisChampStats['lifesteal'] ? thisChampStats['lifesteal'] + value : value; 
         break; 
       default:
         return champStats;

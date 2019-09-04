@@ -38,21 +38,27 @@ export default class ItemBuild extends Component {
   addChampion = async (evt) => {
     const champName = evt.target.getAttribute('name');
     const champData = await axios.get(`http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/data/en_US/champion/${champName}.json`);
+    const champDataWithItemSlots = {...champData.data.data[champName], currentItems: []}
 
     if (!this.state.roster[champName]) {
       this.setState(st => ({
-        roster: { ...st.roster, [champName]: champData.data.data[champName]}
-      }), () => console.log(this.state.roster));
+        roster: { ...st.roster, [champName]: champDataWithItemSlots}
+      }), () => console.log('new roster after add champ:', this.state.roster));
     }
   }
 
-  addItem = async (stats) => {
-    this.setState({currentItemStats: stats});
+  addItem = async (stats, itemName) => {
+    console.log(itemName);
+    this.setState({currentItemStats: { stats, itemName }});
   }
 
   applyStats = async (champName) => {
     const currentChamp = this.state.roster[champName];
-    let newChampStats = applyItemStats(currentChamp, this.state.currentItemStats);
+    console.log('applied stats, current champ', currentChamp); 
+    let newChampStats = applyItemStats(currentChamp, this.state.currentItemStats['stats']);
+    // if (currentChamp['items'].length < 6) { //there are still item slots left
+    //   console.log(this.state.currentItemStats);
+    // }
     this.setState(st => ({ roster: {...st.roster, [champName]: newChampStats}}));
   }
 

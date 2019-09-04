@@ -18,7 +18,7 @@ export default function Item(props) {
     <span
       className='Item-child'
       ref={drag}
-      onClick={ () => addItem(stats) }
+      onClick={ () => addItem(stats, name) }
     >
       <img
         src={`http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/img/item/${id}.png`}
