@@ -6,9 +6,9 @@ const PORT = +process.env.PORT || 3000;
 let DB_URI; 
 
 if (process.env.NODE_ENV === "test") {
-  DB_URI = "recall-test";
+  DB_URI = "leagueapp";
 } else {
-  DB_URI = process.env.DATABASE_URL || "recall";
+  DB_URI = process.env.DATABASE_URL || "leagueapp";
 }
 
 module.exports = {

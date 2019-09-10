@@ -19,9 +19,9 @@ class Server {
   static async createTables() {
     const response = await db.query(`
         DROP TABLE IF EXISTS champions;
-        DROP TABLE IF EXISTS abilities; 
+        DROP TABLE IF EXISTS abilities;
 
-        CREATE TABLE champions (
+        CREATE TABLE champions(
             name text PRIMARY KEY, 
             title text,
             hp FLOAT,
@@ -43,8 +43,7 @@ class Server {
             attackspeed FLOAT,
             attackspeed_per_level FLOAT,
             crit FLOAT,
-            crit_per_level FLOAT, 
-        )`);
+            crit_per_level FLOAT)`);
 
     return response.rows;
   }
