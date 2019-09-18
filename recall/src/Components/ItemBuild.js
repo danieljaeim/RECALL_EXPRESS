@@ -6,16 +6,17 @@ import axios from 'axios';
 import applyItemStats from '../helpers/statCalculations';
 import { BASE_URL, PATCH_NUM } from '../config';
 import '../Stylesheets/ItemBuild.css';
+import runesData from '../data/en_US/runesReforged.json';
 
 
 export default class ItemBuild extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      runesData, 
       champions: [],
       items: [],
-      roster: {},
-      currentItemStats: {}
+      roster: {}
     }
   }
 
@@ -31,14 +32,16 @@ export default class ItemBuild extends Component {
 
     this.setState(st => ({
       champions: champList.data,
-      items: itemsDataArr
-    }));
+      items: itemsDataArr,
+      runesData
+    }), () => console.log(this.state));
   }
 
   addChampion = async (evt) => {
     const champName = evt.target.getAttribute('name');
     const champData = await axios.get(`http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/data/en_US/champion/${champName}.json`);
-    const champDataWithItemSlots = {...champData.data.data[champName], currentItems: []}
+
+    const champDataWithItemSlots = {...champData.data.data[champName], currentItems: [], currentRunes: {keystone: 0, secondary: 1, majorRunes: [1, 1, 1, 1], minorRunes: [[1, 1], [2, 1]]}}; 
 
     if (!this.state.roster[champName]) {
       this.setState(st => ({
@@ -56,26 +59,32 @@ export default class ItemBuild extends Component {
     const currentChamp = this.state.roster[champName];
     console.log('applied stats, current champ', currentChamp); 
     let newChampStats = applyItemStats(currentChamp, this.state.currentItemStats['stats']);
-    // if (currentChamp['items'].length < 6) { //there are still item slots left
-    //   console.log(this.state.currentItemStats);
-    // }
+    if (currentChamp['items'].length < 6) { //there are still item slots left
+      console.log(this.state.currentItemStats);
+    }
     this.setState(st => ({ roster: {...st.roster, [champName]: newChampStats}}));
   }
 
+  applyMasteries = async (type, id, champName) => {
+    const currentChampMasteries= this.state.roster[champName]['currentMasteries']; 
+
+  }
+
   render() {
-    const { champions, items, roster } = this.state;
+    const { champions, items, roster, runesData } = this.state;
 
     return (
       <div>
         <div> Current Item: {JSON.stringify(this.state.currentItemStats)} </div>
         <ChampRoster roster={roster}
                      applyStats={this.applyStats}
+                     runesData={runesData}
         />
         <ChampPool addChampion={this.addChampion}
                    champions={champions}
         />
-        <ItemPool addItem={this.addItem}
-                  items={items}
+        {/* <ItemPool addItem={this.addItem}
+                  items={items} */}
         />
       </div>
     );

@@ -1,5 +1,8 @@
-let request = require('request');
-const db = require('../db');
+import request from 'request'; 
+import db from '../db';
+import fs from 'fs'; 
+
+
 const CURRENT_PATCH = '9.13.1';
 const BASE_URL = `http://ddragon.leagueoflegends.com/cdn/${CURRENT_PATCH}/data/en_US/champion.json`;
 
