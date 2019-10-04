@@ -16,7 +16,8 @@ export default class ItemBuild extends Component {
       runesData, 
       champions: [],
       items: [],
-      roster: {}
+      roster: {},
+      currentItemStats: {}
     }
   }
 
@@ -50,19 +51,19 @@ export default class ItemBuild extends Component {
     }
   }
 
-  addItem = async (stats, itemName) => {
+  addItem = async (stats, itemName, id) => {
     console.log(itemName);
-    this.setState({currentItemStats: { stats, itemName }});
+    this.setState({currentItemStats: { stats, itemName, id }});
   }
 
   applyStats = async (champName) => {
     const currentChamp = this.state.roster[champName];
-    console.log('applied stats, current champ', currentChamp); 
-    let newChampStats = applyItemStats(currentChamp, this.state.currentItemStats['stats']);
-    if (currentChamp['items'].length < 6) { //there are still item slots left
-      console.log(this.state.currentItemStats);
+    const currentItem = this.state.currentItemStats;
+    if (currentChamp['currentItems'].length < 6) { //there are still item slots left
+      let newChampStats = applyItemStats(currentChamp, this.state.currentItemStats['stats']);
+      currentChamp['currentItems'][currentChamp['currentItems'].length] = {id: currentItem.id, name: currentItem.itemName};
+      this.setState(st => ({ roster: {...st.roster, [champName]: newChampStats}}));
     }
-    this.setState(st => ({ roster: {...st.roster, [champName]: newChampStats}}));
   }
 
   applyMasteries = async (type, id, champName) => {
@@ -83,8 +84,8 @@ export default class ItemBuild extends Component {
         <ChampPool addChampion={this.addChampion}
                    champions={champions}
         />
-        {/* <ItemPool addItem={this.addItem}
-                  items={items} */}
+        <ItemPool addItem={this.addItem}
+                  items={items}
         />
       </div>
     );

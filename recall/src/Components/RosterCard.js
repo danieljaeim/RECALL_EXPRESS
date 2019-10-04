@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import '../Stylesheets/RosterCard.css';
 import { PATCH_NUM } from '../config';
+import ItemsList from '../Components/ItemsList';
 
 export default function RosterCard(props) {
 
-  const { name, title, partype, runesData, currentRunes, spells, stats, tags, applyStats } = props;
+  const { name, title, partype, runesData, currentRunes, spells, stats, tags, applyStats, currentItems } = props;
 
   const qSkill = spells[0];
   const wSkill = spells[1];
   const eSkill = spells[2];
   const rSkill = spells[3];
+
+  // console.log(spells); 
 
   //champ skill icons
   const champIcon = `http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/img/champion/${name}.png`;
@@ -17,8 +20,6 @@ export default function RosterCard(props) {
   const wIcon = `http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/img/spell/${wSkill.image.full}`;
   const eIcon = `http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/img/spell/${eSkill.image.full}`;
   const rIcon = `http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/img/spell/${rSkill.image.full}`;
-
-  console.log(currentRunes)
 
   //state variables
   const keyStoneTree = runesData[currentRunes.keystone];
@@ -28,7 +29,6 @@ export default function RosterCard(props) {
   const majorRunes = currentRunes.majorRunes 
   const minorRunes = currentRunes.minorRunes; 
   // const specRunes = currentRunes.specRunes;  
-
 
   //image holders
   const primary = require(`../img/runes/${keyStoneTree.id}.png`);
@@ -66,6 +66,7 @@ export default function RosterCard(props) {
       <div className='skill-arr'>
         <div className='skill-border'>
           <div className='skill-slot skill-q'>
+              <span className="tooltiptext"> {qSkill.name} </span>
             <img className='skill-img' src={qIcon} alt="q-skill" />
           </div>
           <div className='skill-slot skill-w'>
@@ -79,6 +80,7 @@ export default function RosterCard(props) {
           </div>
         </div>
       </div>
+      <ItemsList currentItems={currentItems} />
       <div className='stat-holder'>
         <div className='stat-line health'> Health: {stats['hp']} </div>
         <div className='stat-line health'> Health: {stats['hpperlevel']} </div>
