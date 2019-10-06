@@ -2,8 +2,8 @@
   position: fixed; 
   bottom: 0; 
   z-index: 1; 
-  height: 200px; 
-  width: 27%; 
+  height: 120px; 
+  width: 50%; 
   overflow-y: scroll; 
   float: left; 
 }

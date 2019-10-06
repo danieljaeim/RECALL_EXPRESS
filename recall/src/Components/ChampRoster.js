@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RosterCard from './RosterCard';
+import ChampionInfoCard from './ChampionInfoCard';
 import '../Stylesheets/ChampRoster.css';
 
 export default function ChampRoster(props) {
@@ -8,7 +8,7 @@ export default function ChampRoster(props) {
 
   return (
     <div className='Champ-roster'>
-        {Object.values(roster).map(champData => <RosterCard key={champData.name}
+        {Object.values(roster).map(champData => <ChampionInfoCard key={champData.name}
                                                             applyStats={applyStats}
                                                             {...champData}
                                                             runesData={runesData} /> )}

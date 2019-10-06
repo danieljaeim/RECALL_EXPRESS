@@ -1,16 +1,10 @@
-.ItemPool {
-  float: right; 
-  height: 100%;  
-  width: 25%; 
-  overflow-y: scroll; 
-  z-index: 1; 
-}
-
 .ItemContainer {
   position: fixed; 
-  height: 200px; 
+  height: 120px; 
+  width: 50%;
   right: 0; 
   bottom: 0; 
+  overflow-y: scroll; 
 }
 
 .toggle-pane {

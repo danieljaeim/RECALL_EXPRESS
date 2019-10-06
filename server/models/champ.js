@@ -5,6 +5,7 @@ class Champ {
   static async getChampStats(name) {
 
     let caseName = name[0].toUpperCase() + name.slice(1);
+    caseName = caseName.replace(/\s/g, '');
 
     let champQuery = await db.query(`
           SELECT * 

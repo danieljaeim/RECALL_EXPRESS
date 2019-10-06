@@ -10,7 +10,10 @@ export default class ItemsList extends Component {
         return (
             <div className="items-list">
                 {currentItems.map(item =>
-                    <img className="list-items" alt="" src={`http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/img/item/${item.id}.png`} />
+                    <img className="list-items" 
+                         alt="" 
+                         src={`http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/img/item/${item.id}.png`} 
+                    />
                 )}
             </div>
         )

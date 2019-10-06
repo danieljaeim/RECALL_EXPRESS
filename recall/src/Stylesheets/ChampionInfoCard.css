@@ -1,7 +1,7 @@
 .roster-card {
   position: relative; 
   height: 800px; 
-  width: 600px;  
+  width: 50%;  
   overflow: scroll; 
   float: left; 
 }
@@ -27,8 +27,11 @@
 }
 
 .champ-title {
-  position: absolute; 
-  top: 200px; 
+  position: absolute;
+  top: 200px;
+  height: 100px;
+  width: 160px;
+  overflow-wrap: normal;
 }
 
 /*

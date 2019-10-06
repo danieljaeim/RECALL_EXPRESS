@@ -5,11 +5,11 @@ import ItemPool from './ItemPool';
 import axios from 'axios';
 import applyItemStats from '../helpers/statCalculations';
 import { BASE_URL, PATCH_NUM } from '../config';
-import '../Stylesheets/ItemBuild.css';
+import '../Stylesheets/BuildPage.css';
 import runesData from '../data/en_US/runesReforged.json';
 
 
-export default class ItemBuild extends Component {
+export default class BuildPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +23,7 @@ export default class ItemBuild extends Component {
 
   async componentDidMount() {
     const champList = await axios.get(`${BASE_URL}/champion/`);
-    const itemsData = await axios.get(`http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/data/en_US/item.json`).then(data => data.data.data);
+    const itemsData = require(`../data/en_US/item.json`).data;
     const itemsDataArr = [];
     for (const itemKey in itemsData) {
       if (itemsData[itemKey].maps["11"] ) {
@@ -40,9 +40,10 @@ export default class ItemBuild extends Component {
 
   addChampion = async (evt) => {
     const champName = evt.target.getAttribute('name');
-    const champData = await axios.get(`http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/data/en_US/champion/${champName}.json`);
+    const champData = require(`../data/en_US/champion/${champName}.json`);
 
-    const champDataWithItemSlots = {...champData.data.data[champName], currentItems: [], currentRunes: {keystone: 0, secondary: 1, majorRunes: [1, 1, 1, 1], minorRunes: [[1, 1], [2, 1]]}}; 
+    const champDataWithItemSlots = {...champData.data[champName], currentItems: [],
+      currentRunes: {keystone: 0, secondary: 1, majorRunes: [1, 1, 1, 1], minorRunes: [[1, 1], [2, 1]]}}; 
 
     if (!this.state.roster[champName]) {
       this.setState(st => ({
@@ -52,12 +53,12 @@ export default class ItemBuild extends Component {
   }
 
   addItem = async (stats, itemName, id) => {
-    console.log(itemName);
     this.setState({currentItemStats: { stats, itemName, id }});
   }
 
   applyStats = async (champName) => {
     const currentChamp = this.state.roster[champName];
+    console.log('currentChamp', currentChamp); 
     const currentItem = this.state.currentItemStats;
     if (currentChamp['currentItems'].length < 6) { //there are still item slots left
       let newChampStats = applyItemStats(currentChamp, this.state.currentItemStats['stats']);
@@ -70,7 +71,7 @@ export default class ItemBuild extends Component {
     const currentChampMasteries= this.state.roster[champName]['currentMasteries']; 
 
   }
-
+  
   render() {
     const { champions, items, roster, runesData } = this.state;
 

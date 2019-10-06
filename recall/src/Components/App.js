@@ -5,7 +5,7 @@ import { DndProvider } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import NavBar from './NavBar';
 import SortChamps from './SortChamps';
-import ItemBuild from './ItemBuild';
+import BuildPage from './BuildPage';
 import '../Stylesheets/App.css';
 
 export default function App() {
@@ -18,7 +18,7 @@ export default function App() {
         <Route exact path="/sort" render={props => <SortChamps {...props} />} />
         <Route exact path="/items" render={props =>
           <DndProvider backend={HTML5Backend}>
-            <ItemBuild {...props} />
+            <BuildPage {...props} />
           </DndProvider>} />
       </BrowserRouter>
     </div>
