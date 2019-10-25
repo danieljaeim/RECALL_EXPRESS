@@ -58,14 +58,13 @@ export default class BuildPage extends Component {
   }
 
   applyStats = async (champName) => {
-    const currentChamp = this.state.roster[champName];
-    const currentItem = this.state.currentItemStats;
-    console.log('champ data here:', currentChamp);
+    const currentChamp = {...this.state.roster[champName]};
+    const currentItem = {...this.state.currentItemStats};
     if (currentChamp['currentItems'].length < 6) {
       let newChampStats = await axios.post(`${BASE_URL}/items/${currentItem.id}`, {champStats: currentChamp.stats});
-      console.log('data from server:', newChampStats);
-      // currentChamp['currentItems'][currentChamp['currentItems'].length] = {id: currentItem.id, name: currentItem.itemName};
-      // this.setState(st => ({ roster: {...st.roster, [champName]: newChampStats}}));
+      currentChamp['currentItems'][currentChamp['currentItems'].length] = {id: currentItem.id, name: currentItem.itemName};
+      currentChamp.stats = newChampStats.data;
+      this.setState(st => ({ roster: {...st.roster, [champName]: currentChamp}}));
     }
   }
   

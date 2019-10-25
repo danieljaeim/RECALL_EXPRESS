@@ -11,8 +11,9 @@ class Item {
         [itemTag]);
 
         let itemAppliedToStats = applyStats(itemQuery.rows[0], champStatsObj);
+        console.log(itemAppliedToStats)
 
-        return null;
+        return itemAppliedToStats;
     }
   
 }
