@@ -21,6 +21,10 @@ export default function ChampBar(props) {
       <td> {mp} </td>
       <td> {mp_per_level} </td>
       <td> {movespeed} </td>
+      <td> {attackdamage} </td>
+      <td> {attackdamage_per_level} </td>
+      <td> {attackspeed} </td>
+      <td> {attackspeed_per_level} </td>
       <td> {armor} </td>
       <td> {armor_per_level} </td>
       <td> {magic_resist} </td>
@@ -30,10 +34,6 @@ export default function ChampBar(props) {
       <td> {hp_regen_level} </td>
       <td> {mp_regen} </td>
       <td> {mp_regen_level} </td>
-      <td> {attackdamage} </td>
-      <td> {attackdamage_per_level} </td>
-      <td> {attackspeed} </td>
-      <td> {attackspeed_per_level} </td>
     </tr>
   )
 }

@@ -1,11 +1,20 @@
 const db = require('../db');
+const applyStats = require('../calculations/applyStats');
 
-// class Item {
+class Item {
+    static async applyItemStats(itemTag, champStatsObj) {
+        
+        let itemQuery = await db.query(
+            `SELECT *
+            FROM items
+            WHERE tag=$1`, 
+        [itemTag]);
 
-//   // static async getListOfItemNames() {
+        let itemAppliedToStats = applyStats(itemQuery.rows[0], champStatsObj);
 
-//   //   let itemQuery = await db.query(`
-//   //     SELECT *
-//   //     FROM champions`
-//   //     )
-//   }
+        return null;
+    }
+  
+}
+
+module.exports = Item; 

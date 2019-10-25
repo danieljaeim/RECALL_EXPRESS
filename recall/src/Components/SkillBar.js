@@ -11,7 +11,7 @@ export default class SkillBar extends Component {
         const eSkill = spells[2];
         const rSkill = spells[3];
 
-        // console.log(spells); 
+        // console.log(spells);
 
         //champ skill icons
         const qIcon = `http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/img/spell/${qSkill.image.full}`;

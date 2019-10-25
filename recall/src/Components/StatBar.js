@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import '../Stylesheets/StatBar.css'
 
 export default class StatBar extends Component {
     render() {
@@ -8,23 +9,28 @@ export default class StatBar extends Component {
         return (
             <div>
                 <div className='stat-holder'>
-                    <div className='stat-line health'> Health: {stats['hp']} </div>
-                    <div className='stat-line health'> Health: {stats['hpperlevel']} </div>
-                    <div className='stat-line '> AttackDamage: {stats['attackdamage']} </div>
-                    <div className='stat-line '> AttackDamage/Lvl: {stats['attackdamageperlevel']} </div>
-                    <div className='stat-line '> Ability Power: {stats['ability_power'] || 0} </div>
-                    <div className='stat-line '> Mana: {stats['mp']} </div>
-                    <div className='stat-line '> Mana/Lvl: {stats['mpperlevel']} </div>
-                    <div className='stat-line '> Mana Regen: {stats['mpregen']} </div>
-                    <div className='stat-line '> Mana Regen/Lvl: {stats['mpregenperlevel']} </div>
-                    <div className='stat-line '> Armor: {stats['armor']} </div>
-                    <div className='stat-line '> Armor/Lvl: {stats['armorperlevel']} </div>
-                    <div className='stat-line '> Attack Range: {stats['attackrange']} </div>
-                    <div className='stat-line '> Attack Speed: {stats['attackspeed']} </div>
-                    <div className='stat-line '> AttackSpeed/Lvl: {stats['attackspeedperlevel']} </div>
-                    <div className='stat-line '> Health Regen: {stats['hpregen']} </div>
-                    <div className='stat-line '> HealthRegen/Lvl: {stats['hpregenperlevel']} </div>
-                    <div className='stat-line '> Movespeed: {stats['movespeed']} </div>
+                    <span className='stat-line '> Health: {stats['hp']} </span>
+                    <span className='stat-line '> Health+ {stats['hp_per_level']} </span>
+                    <span className='stat-line '> Mana: {stats['mp']} </span>
+                    <span className='stat-line '> Mana+: {stats['mp_per_level']} </span>
+                    <span className='stat-line '> AttackDamage: {stats['attackdamage']} </span>
+                    <span className='stat-line '> AttackDamage+: {stats['attackdamage_per_level']} </span>
+                    <span className='stat-line '> Ability Power: {stats['abilitypower']} </span>
+                    <span className='stat-line '> Mana Regen: {stats['mp_regen']} </span>
+                    <span className='stat-line '> Mana Regen+: {stats['mp_regen_level']} </span>
+                    <span className='stat-line '> Armor: {stats['armor']} </span>
+                    <span className='stat-line '> Armor+: {stats['armor_per_level']} </span>
+                    <span className='stat-line '> Attack Range: {stats['attackrange']} </span>
+                    <span className='stat-line '> Attack Speed: {stats['attackspeed']} </span>
+                    <span className='stat-line '> AttackSpeed+: {stats['attackspeed_per_level']} </span>
+                    <span className='stat-line '> Health Regen: {stats['hp_regen']} </span>
+                    <span className='stat-line '> HealthRegen+: {stats['hp_regen_level']} </span>
+                    <span className='stat-line '> Movespeed: {stats['movespeed']} </span>
+                    <span className='stat-line '> Lifesteal: {stats['lifesteal']} </span>
+                    <span className='stat-line '> Lifesteal(monster): {stats['lifesteal_monsters']} </span>
+                    <span className='stat-line '> MagicResist: {stats['magic_resist']} </span>
+                    <span className='stat-line '> MagicResist+: {stats['magic_resist_per_level']} </span>
+                    <span className='stat-line '> Crit: {stats['crit']} </span>
                 </div>
                 <button className="roster-button" onClick={() => applyStats(id)}>Apply Stats</button>
             </div>

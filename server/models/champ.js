@@ -3,7 +3,6 @@ const db = require('../db');
 class Champ {
 
   static async getChampStats(name) {
-
     let caseName = name[0].toUpperCase() + name.slice(1);
     caseName = caseName.replace(/\s/g, '');
 
@@ -12,14 +11,15 @@ class Champ {
           FROM champions
           WHERE name LIKE $1`,
     [caseName]);
-
-    champQuery = {...champQuery.rows[0], ability_power: 0 };
+    //gathers more specific data on the champion from the champion/{champName}
+    //FIX ME, replace with server backend lore gathering
+    let champData = require(`../data/en_US/champion/${caseName}`);
+    champQuery = {...champData.data[caseName], stats: champQuery.rows[0], baseStats: {...champQuery.rows[0]}};
 
     return champQuery;
   }
 
   static async getListOfNames() {
-
     let nameQuery = await db.query(`
           SELECT *
           FROM champions`
