@@ -4,6 +4,7 @@ import { PATCH_NUM } from '../config';
 import ItemsList from './ItemsList';
 import StatBar from './StatBar';
 import SkillBar from './SkillBar'; 
+import DamageModal from './DamageModal';
 import MasteryTree from './MasteryTree.js'; 
 
 export default function ChampionInfoCard(props) {

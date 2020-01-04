@@ -1,8 +1,9 @@
-let applyStats = (itemStats, champStats) => {
+let applyStats = (itemStats, champStats, champLevel, champBaseStatsObj) => {
    console.log('item', itemStats);
    console.log('champ', champStats);
+
+   console.log('baseStats', champBaseStatsObj);
    for (let [stat, value] of Object.entries(itemStats)) {
-      console.log(stat, value);
       switch (stat) {
          case "abilitypower":
             champStats.abilitypower += value;
@@ -11,10 +12,10 @@ let applyStats = (itemStats, champStats) => {
             champStats.movespeed += value;
             continue;
          case "movespeed_percent":
-            champStats.movespeed_percent += value;
+            champStats.movespeed_percent += value; 
             continue;
          case "attackspeed_percent":
-            champStats.attackspeed += value;
+            champStats.bonus_attackspeed += value; 
             continue;
          case "health":
             champStats.health += value;
@@ -35,10 +36,10 @@ let applyStats = (itemStats, champStats) => {
             champStats.crit += value;
             continue;
          case "cooldown_percent":
-            champStats.cooldown_reduction += value;
+            champStats.cooldown_reduction = (champStats.cooldown_reduction + value) >= 45 ? 45 : champStats.cooldown_reduction + value;
             continue;
          case "bonus_health_percent":
-            champStats.health = value;
+            champStats.bonus_health
             continue;
          case "lifesteal_monsters_percent":
             champStats.lifesteal_monsters += value;
@@ -66,7 +67,7 @@ let applyStats = (itemStats, champStats) => {
       }
    }
 
-   console.log('changedstats', champStats)
+   console.log('new changedstats', champStats)
    return champStats;
 }
 

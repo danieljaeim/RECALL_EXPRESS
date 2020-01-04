@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PATCH_NUM } from '../config'; 
+import "../Stylesheets/Skillbar.css";
 
 export default class SkillBar extends Component {
     render() {
@@ -10,8 +11,6 @@ export default class SkillBar extends Component {
         const wSkill = spells[1];
         const eSkill = spells[2];
         const rSkill = spells[3];
-
-        // console.log(spells);
 
         //champ skill icons
         const qIcon = `http://ddragon.leagueoflegends.com/cdn/${PATCH_NUM}/img/spell/${qSkill.image.full}`;
@@ -24,7 +23,9 @@ export default class SkillBar extends Component {
                 <div className='skill-arr'>
                     <div className='skill-border'>
                         <div className='skill-slot skill-q'>
-                            <span className="tooltiptext"> {qSkill.name} </span>
+                            <div className="tooltip"> Hover over me!!
+                                <span className="tooltiptext"> {qSkill.name} </span>
+                            </div>
                             <img className='skill-img' src={qIcon} alt="q-skill" />
                         </div>
                         <div className='skill-slot skill-w'>

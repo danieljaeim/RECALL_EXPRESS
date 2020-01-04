@@ -37,6 +37,7 @@ class Server {
             attackdamage_per_level FLOAT,
             attackspeed FLOAT,
             attackspeed_per_level FLOAT,
+            bonus_attackspeed FLOAT, 
             abilitypower FLOAT,
             crit FLOAT,
             crit_per_level FLOAT,
@@ -106,6 +107,7 @@ class Server {
                   attackdamage_per_level, 
                   attackspeed, 
                   attackspeed_per_level, 
+                  bonus_attackspeed,
                   crit,
                   crit_per_level,
                   abilitypower,
@@ -118,15 +120,15 @@ class Server {
                   gold_per_5)
               VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14,
                   $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, $26, $27,
-                  $28, $29, $30, $31, $32, $33)
+                  $28, $29, $30, $31, $32, $33, $34)
               `,
         [champObjData.id, champObjData.title, champObjStats.hp, champObjStats.hpperlevel, 0, 0,
         champObjStats.mp, champObjStats.mpperlevel, champObjStats.movespeed, 0, champObjStats.armor,
         champObjStats.armorperlevel, champObjStats.spellblock, champObjStats.spellblockperlevel,
         champObjStats.attackrange, champObjStats.hpregen, champObjStats.hpregenperlevel,
         champObjStats.mpregen, champObjStats.mpregenperlevel, champObjStats.attackdamage,
-        champObjStats.attackdamageperlevel, champObjStats.attackspeed, champObjStats.attackspeedperlevel,
-        champObjStats.crit, champObjStats.critperlevel, 0, 0, 0, 0, 0, 0, 0, 0]);
+        champObjStats.attackdamageperlevel, champObjStats.attackspeed, champObjStats.attackspeedperlevel, 
+        0, champObjStats.crit, champObjStats.critperlevel, 0, 0, 0, 0, 0, 0, 0, 0]);
       }
   }
 

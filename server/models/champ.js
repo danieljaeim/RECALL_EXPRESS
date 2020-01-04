@@ -12,7 +12,7 @@ class Champ {
           WHERE name LIKE $1`,
     [caseName]);
     //gathers more specific data on the champion from the champion/{champName}
-    //FIX ME, replace with server backend lore gathering
+    //FIX ME, replace with server backend that takes from server, rather than json file
     let champData = require(`../data/en_US/champion/${caseName}`);
     champQuery = {...champData.data[caseName], stats: champQuery.rows[0], baseStats: {...champQuery.rows[0]}};
 

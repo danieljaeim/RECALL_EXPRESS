@@ -1,9 +1,10 @@
 .roster-card {
   position: relative; 
   height: 800px; 
-  width: 50%;  
+  width: 30%;  
   overflow: scroll; 
   float: left; 
+  left: 100px;
 }
 
 .roster-button {
@@ -24,6 +25,7 @@
 .champ-name {
   position: absolute; 
   top: 150px;  
+  font-size: 1.5vw;
 }
 
 .champ-title {
@@ -70,50 +72,6 @@ Item Bar
 }
 
 /*
- SKILL BAR
-*/
-
-.skill-arr {
-  position: absolute; 
-  display: inline-block; 
-  left: 125px;
-  top: 25px;   
-  width: 400px; 
-  height: 100px;  
-  background-color: black; 
-  border-width: 2px;
-  border-style: solid; 
-  border-radius: 4px; 
-}
-
-.skill-border {
-  display: inline-flex; 
-  color: black; 
-  border-width: 2px; 
-  border-color:goldenrod; 
-  border-style: solid; 
-  border-radius: 4px; 
-  height: 100px; 
-  width: 400px; 
-}
-
-.skill-slot {
-  position: inline-flex; 
-  border-width: 2px; 
-  border-color: black; 
-  border-style: solid; 
-  width: 25%; 
-}
-
-.skill-img {
-  width: 97%; 
-  height: auto; 
-  max-width: 100px; 
-  margin: 1px;  
-  z-index: -2; 
-}
-
-/*
 STAT BAR
 */
 
@@ -131,105 +89,6 @@ STAT BAR
   position: relative; 
   text-align: right; 
 }
-
-/*
-MASTERY TREE POSITIONING
-*/
-
-.mastery-tree {
-  position: absolute;
-  top: 30%;  
-  width: 200px; 
-  height: 320px;  
-}
-
-.tree-node {
-  position: relative; 
-  border-radius: 50%; 
-  text-align: center; 
-  height: 40px; 
-  width: 40px; 
-  border: 2px black solid; 
-  margin: 20px; 
-  left: 10px; 
-}
-
-.keystone-mastery { 
-  height: 60px; 
-  width: 60px;
-  left: 5px;  
-}
-
-.secondary-mastery {
-  position: absolute; 
-  height: 55px; 
-  width: 55px; 
-  left: 85px;
-  top: -15px;  
-}
-
-.major-tree {
-  position: relative; 
-}
-
-.minor-tree {
-  position: absolute; 
-  left: 80px; 
-  top: 25%; 
-}
-
-.minor {
-  width: 40px; 
-  height: 40px; 
-}
-
-.stats-tree {
-  position: absolute; 
-}
-
-.spec-node {
-  position: relative; 
-  border: 2px black dotted; 
-  width: 25px; 
-  height: 25px; 
-  border-radius: 50%; 
-  left: 95px; 
-  bottom: 55px; 
-  margin: 10px; 
-}
-
-.keystone-img {
-  position: relative;   
-  height: 100%; 
-  width: 100%;   
-}
-
-.secondary-img {
-  position: relative; 
-  height: 100px; 
-  width: 100px; 
-  top: -20px; 
-  right: 25px; 
-}
-
-.majortree-img {
-  position: relative; 
-  height: 100%;
-  width: 100%; 
-}
-
-.minortree-img {
-  position: relative; 
-  height: 100%;  
-  width: 100%;
-}
-
-.spectree-img {
-  position: relative; 
-  height: 60px; 
-  width: 60px; 
-}
-
 /*
 TOOL TIP FUNCTIONALITY
 */

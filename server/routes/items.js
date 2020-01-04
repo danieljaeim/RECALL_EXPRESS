@@ -6,9 +6,9 @@ router.post('/:itemTag', async (req, res, next) => {
   try {
     console.log('got an item');
     const { itemTag } = req.params; 
-    const { champStats } = req.body;
+    const { currentChampStats, currentLevel, baseStats } = req.body;
 
-    let itemStats = await Item.applyItemStats(itemTag, champStats); 
+    let itemStats = await Item.applyItemStats(itemTag, currentChampStats, currentLevel, baseStats); 
     return res.json(itemStats);
   } catch (err) {
     next(err);

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ChampRoster from './ChampRoster';
 import ChampPool from './ChampPool';
 import ItemPool from './ItemPool';
+import DamageModal from './DamageModal';
 import axios from 'axios';
-import applyItemStats from '../helpers/statCalculations';
 import { BASE_URL, PATCH_NUM } from '../config';
 import '../Stylesheets/BuildPage.css';
 import runesData from '../data/en_US/runesReforged.json';
@@ -44,6 +44,7 @@ export default class BuildPage extends Component {
     console.log('champstats from server', champStats.data);
 
     const champDataWithItemSlots = {...champStats.data, currentItems: [],
+      currentLevel: 1,
       currentRunes: {keystone: 0, secondary: 1, majorRunes: [1, 1, 1, 1], minorRunes: [[1, 1], [2, 1]]}}; 
 
     if (!this.state.roster[champName]) {
@@ -61,7 +62,8 @@ export default class BuildPage extends Component {
     const currentChamp = {...this.state.roster[champName]};
     const currentItem = {...this.state.currentItemStats};
     if (currentChamp['currentItems'].length < 6) {
-      let newChampStats = await axios.post(`${BASE_URL}/items/${currentItem.id}`, {champStats: currentChamp.stats});
+      let newChampStats = await axios.post(`${BASE_URL}/items/${currentItem.id}`, {currentChampStats: currentChamp.stats, 
+        currentLevel: currentChamp.currentLevel, baseStats: currentChamp.baseStats});
       currentChamp['currentItems'][currentChamp['currentItems'].length] = {id: currentItem.id, name: currentItem.itemName};
       currentChamp.stats = newChampStats.data;
       this.setState(st => ({ roster: {...st.roster, [champName]: currentChamp}}));
@@ -84,6 +86,7 @@ export default class BuildPage extends Component {
         <ItemPool addItem={this.addItem}
                   items={items}
         />
+        <DamageModal />
       </div>
     );
   }

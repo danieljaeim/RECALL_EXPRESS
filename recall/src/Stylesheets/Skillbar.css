@@ -1,0 +1,64 @@
+.skill-arr {
+    position: absolute; 
+    display: inline-block; 
+    left: 125px;
+    top: 25px;   
+    width: 400px; 
+    height: 100px;  
+    background-color: black; 
+    border-width: 2px;
+    border-style: solid; 
+    border-radius: 4px; 
+  }
+  
+  .skill-border {
+    display: inline-flex; 
+    color: black; 
+    border-width: 2px; 
+    border-color:goldenrod; 
+    border-style: solid; 
+    border-radius: 4px; 
+    height: 100px; 
+    width: 400px; 
+  }
+  
+  .skill-slot {
+    position: inline-flex; 
+    border-width: 2px; 
+    border-color: black; 
+    border-style: solid; 
+    width: 25%; 
+  }
+  
+  .skill-img {
+    width: 97%; 
+    height: auto; 
+    max-width: 100px; 
+    margin: 1px;  
+    z-index: -2; 
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    width: 120px;
+    height: 20px;
+  }
+  
+  .tooltip .tooltiptext {
+    /* visibility: hidden; */
+    width: 120px;
+    height: 20px; 
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    z-index: -3;
+    bottom: 10px; 
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

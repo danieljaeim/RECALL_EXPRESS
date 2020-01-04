@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PATCH_NUM } from '../config';
+import '../Stylesheets/ItemsList.css';
 
 export default class ItemsList extends Component {
     render() {

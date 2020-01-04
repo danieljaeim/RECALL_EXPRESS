@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import '../Stylesheets/MasteryTree.css';
 
 export default class MasteryTree extends Component {
     render() {
